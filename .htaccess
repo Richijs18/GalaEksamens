@@ -1,0 +1,9 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+#lai neaiztiek realos dirus
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [L]
+
+RewriteRule ([A-Za-z0-9-]+)/?$ index.php?menu=$1 [QSA,L]
